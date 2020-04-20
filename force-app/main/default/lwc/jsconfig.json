@@ -1,0 +1,80 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/assetClassSelector": [
+                "assetClassSelector/assetClassSelector.js"
+            ],
+            "c/errorPanel": [
+                "errorPanel/errorPanel.js"
+            ],
+            "c/fundFilter": [
+                "fundFilter/fundFilter.js"
+            ],
+            "c/fundInfoPopup": [
+                "fundInfoPopup/fundInfoPopup.js"
+            ],
+            "c/fundTile": [
+                "fundTile/fundTile.js"
+            ],
+            "c/fundTileList": [
+                "fundTileList/fundTileList.js"
+            ],
+            "c/ldsUtils": [
+                "ldsUtils/ldsUtils.js"
+            ],
+            "c/mortgageAmortization": [
+                "mortgageAmortization/mortgageAmortization.js"
+            ],
+            "c/mortgageCalculator": [
+                "mortgageCalculator/mortgageCalculator.js"
+            ],
+            "c/mortgageUtils": [
+                "mortgageUtils/mortgageUtils.js"
+            ],
+            "c/paginator": [
+                "paginator/paginator.js"
+            ],
+            "c/percentReturnRange": [
+                "percentReturnRange/percentReturnRange.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/rating": [
+                "rating/rating.js"
+            ],
+            "c/searchBar": [
+                "searchBar/searchBar.js"
+            ],
+            "c/sectorSelector": [
+                "sectorSelector/sectorSelector.js"
+            ],
+            "c/stockUtils": [
+                "stockUtils/stockUtils.js"
+            ],
+            "c/stockWidget": [
+                "stockWidget/stockWidget.js"
+            ],
+            "c/nouislider": [
+                "../staticresources/nouislider/nouislider.js"
+            ],
+            "c/opportunitiesOverAmount": [
+                "opportunitiesOverAmount/opportunitiesOverAmount.js"
+            ],
+            "c/accountsOverAmount": [
+                "accountsOverAmount/accountsOverAmount.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

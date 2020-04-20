@@ -1,0 +1,22 @@
+<!-- accountsOverAmount.html -->
+<template>
+    <!-- Display a list of accounts -->
+    <p>List of Accounts over
+        <lightning-input type="amount" onchange={handleAmountChange} class="slds-m-bottom_small" label="Amount" value={amount} format-style="currency"></lightning-input>
+        <!-- <lightning-formatted-number value={amount} format-style="currency"></lightning-formatted-number> -->
+    </p>
+    <template if:true={accountsOverAmount.data}>
+    <lightning-card>
+        <template for:each={accountsOverAmount.data} for:item="acct" for:index="idx">
+            <div key={acct.Id} class="slds-m-bottom_medium">
+                <p>{idx}. {acct.Name}</p>
+                <p><lightning-formatted-number value={acct.AnnualRevenue} format-style="currency"></lightning-formatted-number></p>
+                <p><lightning-badge label={acct.Type}></lightning-badge></p>
+            </div>
+        </template>
+        <!-- Click the button to change the opportunities. Requires the data to be refetched
+             and re-rendered -->
+        <lightning-button label="Manual Refresh" onclick={handleClick}></lightning-button>
+    </lightning-card>
+    </template>
+</template>

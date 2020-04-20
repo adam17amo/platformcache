@@ -1,0 +1,39 @@
+<apex:page controller="AccountController" lightningStylesheets="true">
+    <apex:form id="myForm">
+        <apex:outputPanel id="fullPanel">
+            <apex:outputPanel id="primaryPanel" rendered="{!!useCache}">
+                <apex:pageBlock title="Accounts from Query">
+                    <apex:pageBlockTable value="{!topTenAccounts}" var="a">
+                        <apex:column value="{!a.Name}"/>
+                        <apex:column value="{!a.Region__c}"/>
+                        <apex:column value="{!a.AnnualRevenue}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <h1>  
+                    <apex:outputText id="query">Query took {!querySeconds} milliseconds</apex:outputText><br/>
+                    <apex:outputText id="cache">Cache value was {!useCache}</apex:outputText>
+                </h1>
+            </apex:outputPanel>
+            
+            <apex:outputPanel id="cachePanel" rendered="{!useCache}">
+                <apex:pageBlock title="Accounts from Cache">
+                    <apex:pageBlockTable value="{!topTenAccountsCache}" var="a">
+                        <apex:column value="{!a.Name}"/>
+                        <apex:column value="{!a.Region__c}"/>
+                        <apex:column value="{!a.AnnualRevenue}"/>
+                    </apex:pageBlockTable>
+                </apex:pageBlock>
+                <h1> 
+                	<apex:outputText id="queryCache">Query with cache took {!cacheSeconds} milliseconds</apex:outputText><br/>
+                	<apex:outputText id="cacheTrue">Cache value was {!useCache}</apex:outputText>
+               	</h1>
+            </apex:outputPanel>
+         </apex:outputPanel>
+        
+        <h1>
+         Use Cache <apex:inputCheckbox value="{!useCache}"/>
+      	</h1>
+        <apex:commandButton value="Refresh" reRender="myForm"></apex:commandButton><br/>
+   	</apex:form>
+
+</apex:page>
