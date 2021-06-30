@@ -1,3 +1,0 @@
-<design:component >
-    <design:attribute name="componentHeight" label="Component Height" default="700px"/>
-</design:component>
