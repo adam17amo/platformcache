@@ -1,3 +1,0 @@
-{
-    "presets": ["react", "@salesforce/babel-preset-design-system-react"]
-}
