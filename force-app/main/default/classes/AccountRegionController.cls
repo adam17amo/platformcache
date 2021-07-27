@@ -11,7 +11,7 @@ public class AccountRegionController {
         }
         Long startMillis = System.now().getTime();
         for(String regionName : accountsByRegion.keySet()){
-            Integer count = [SELECT count() FROM Account WHERE Region__c = :regionName AND Type = 'VIP'];
+            Integer count = [SELECT count() FROM Account WHERE Region__c = :regionName];
             accountsByRegion.put(regionName, count);
         }
         Long endMillis = System.now().getTime();
@@ -19,14 +19,14 @@ public class AccountRegionController {
         System.debug('Diff is ' + diff);
         querySeconds = diff;
         // Put any data structure into the cache
-        Cache.Org.put('local.AcctPartition.VIPAccounts', accountsByRegion);
+        Cache.Org.put('local.AcctPartition.RegionAccounts', accountsByRegion);
         return convertMapToDetail(accountsByRegion);
     }
     
     public List<AccountDetail> getAccountsByRegionCache(){
        	Long startMillisCache = System.now().getTime();
         Map<String, Integer> accountsByRegion =
-            (Map<String, Integer>)Cache.Org.getPartition('local.AcctPartition').get('VIPAccounts');
+            (Map<String, Integer>)Cache.Org.getPartition('local.AcctPartition').get('RegionAccounts');
         Long endMillisCache = System.now().getTime();
         Long diffCache = endMillisCache - startMillisCache;
         System.debug('Diff cache is ' + diffCache);
